@@ -11,5 +11,5 @@ app.get("/", (_req, res) => {
 });
 
 app.listen(port, "0.0.0.0", () => {
-  console.log(`DAVIDO mockup at http://0.0.0.0:${port}`);
+  console.log(`Read Easy static (landing + pill) at http://0.0.0.0:${port}`);
 });

@@ -1,0 +1,1 @@
+import{c as t,j as e,A as n}from"./index-Cpvo15IO.js";document.documentElement.setAttribute("data-window","pill");typeof window<"u"&&"__TAURI_INTERNALS__"in window&&document.documentElement.setAttribute("data-pill-surface","transparent");t.createRoot(document.getElementById("root")).render(e.jsx(n,{windowRole:"pill"}));
