@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAVIDO — UI Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #06060a;
+    --surface: #0d0d14;
+    --surface2: #13131c;
+    --border: #1a1a28;
+    --accent: #6c63ff;
+    --accent2: #9d97ff;
+    --glow: rgba(108,99,255,0.15);
+    --text: #f0f0fa;
+    --muted: #32324a;
+    --muted2: #64647a;
+    --green: #39e58c;
+    --red: #ff4d6d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    min-height: 100vh;
+    padding: 48px 20px 80px;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 600px 400px at 20% 0%, rgba(108,99,255,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 300px at 80% 100%, rgba(108,99,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-title {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .page-title h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .page-title p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted2);
+    margin-top: 6px;
+  }
+
+  .screens {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .screen-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .screen-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted2);
+  }
+
+  /* BROWSER WINDOW */
+  .browser {
+    width: 340px;
+    background: var(--bg);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.03),
+      0 32px 64px rgba(0,0,0,0.8);
+    overflow: hidden;
+  }
+
+  .browser-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .browser-dots {
+    display: flex;
+    gap: 5px;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  .dot-r { background: #ff5f57; }
+  .dot-y { background: #febc2e; }
+  .dot-g { background: #28c840; }
+
+  .browser-url {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted2);
+    letter-spacing: 0.5px;
+  }
+
+  .browser-content {
+    padding: 0;
+  }
+
+  /* ══ SCREEN 1: LANDING ══ */
+  .landing {
+    padding: 32px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    min-height: 520px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .landing::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(108,99,255,0.1), transparent 70%);
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .land-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .land-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--muted2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .land-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--text);
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+    max-width: 260px;
+  }
+
+  .land-sub {
+    font-size: 12px;
+    color: var(--muted2);
+    line-height: 1.7;
+    max-width: 240px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .who-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .who-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--muted2);
+    text-transform: uppercase;
+  }
+
+  .land-btn {
+    width: 100%;
+    max-width: 240px;
+    background: var(--accent);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 16px;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(108,99,255,0.35);
+    position: relative;
+    z-index: 1;
+  }
+
+  .land-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ══ SCREEN 2: MAIN APP ══ */
+  .app-screen { padding: 0; }
+
+  .app-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-tier {
+    background: rgba(108,99,255,0.15);
+    border: 1px solid rgba(108,99,255,0.3);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--accent2);
+    letter-spacing: 1px;
+  }
+
+  .nav-reads {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted2);
+  }
+
+  .app-body { padding: 16px 18px 20px; }
+
+  /* TEXT AREA */
+  .ta-wrap { position: relative; margin-bottom: 14px; }
+
+  .fake-ta {
+    width: 100%;
+    min-height: 130px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .fake-ta .placeholder {
+    color: var(--muted2);
+    font-style: italic;
+  }
+
+  .fake-ta .typed { color: var(--text); }
+
+  .fake-ta .highlighted {
+    background: rgba(108,99,255,0.25);
+    border-radius: 2px;
+  }
+
+  .char-count {
+    position: absolute;
+    bottom: 10px; right: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+  }
+
+  /* FLOATING READ BTN */
+  .float-read {
+    position: absolute;
+    top: 44px; right: 60px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    box-shadow: 0 4px 16px rgba(108,99,255,0.4);
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  /* CONTROLS */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-play {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 11px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(108,99,255,0.3);
+  }
+
+  .btn-pause {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted2);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 11px 14px;
+    cursor: pointer;
+  }
+
+  .btn-stop {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted2);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 11px 14px;
+    cursor: pointer;
+  }
+
+  .voice-select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 8px 10px;
+    margin-left: auto;
+  }
+
+  /* SPEED */
+  .speed-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .speed-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted2);
+    width: 40px;
+  }
+
+  .speed-track {
+    flex: 1;
+    height: 4px;
+    background: var(--surface2);
+    border-radius: 99px;
+    position: relative;
+  }
+
+  .speed-fill {
+    position: absolute;
+    left: 0; top: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 99px;
+  }
+
+  .speed-thumb {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px; height: 12px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(108,99,255,0.4);
+  }
+
+  .speed-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--accent2);
+    width: 28px;
+    text-align: right;
+  }
+
+  /* PROGRESS */
+  .progress-wrap {
+    height: 3px;
+    background: var(--surface2);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 35%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 99px;
+  }
+
+  /* STATUS */
+  .status-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--accent2);
+  }
+
+  .status-pulse {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent2);
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ══ SCREEN 3: SIGNUP ══ */
+  .auth-screen {
+    padding: 28px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 480px;
+    justify-content: center;
+  }
+
+  .auth-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+  }
+
+  .auth-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--text);
+    text-align: center;
+  }
+
+  .auth-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted2);
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+  .auth-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 12px 14px;
+  }
+
+  .auth-input.focused {
+    border-color: rgba(108,99,255,0.5);
+  }
+
+  .auth-btn {
+    width: 100%;
+    background: var(--accent);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(108,99,255,0.3);
+  }
+
+  .auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 2px;
+  }
+
+  .auth-divider::before, .auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .auth-plans {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .plan-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .plan-card.featured {
+    border-color: rgba(108,99,255,0.4);
+    background: rgba(108,99,255,0.06);
+  }
+
+  .plan-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .plan-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--accent2);
+    line-height: 1;
+  }
+
+  .plan-price span {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted2);
+    display: block;
+    margin-top: 2px;
+    letter-spacing: 1px;
+  }
+
+  .plan-feature {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    color: var(--muted2);
+    margin-top: 6px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+
+  /* ══ SCREEN 4: UPGRADE ══ */
+  .upgrade-screen {
+    padding: 24px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 480px;
+    justify-content: center;
+  }
+
+  .upgrade-badge {
+    background: rgba(108,99,255,0.12);
+    border: 1px solid rgba(108,99,255,0.25);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--accent2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    align-self: center;
+  }
+
+  .upgrade-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .upgrade-price {
+    text-align: center;
+  }
+
+  .up-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .up-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted2);
+    letter-spacing: 2px;
+    margin-top: 2px;
+  }
+
+  .upgrade-features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .uf-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+
+  .uf-check {
+    width: 18px; height: 18px;
+    background: rgba(108,99,255,0.2);
+    border: 1px solid rgba(108,99,255,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    flex-shrink: 0;
+    color: var(--accent2);
+  }
+
+  .uf-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text);
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+  }
+
+  .upgrade-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent), #5040d0);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 16px;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(108,99,255,0.35);
+  }
+
+  .upgrade-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>DAVIDO</h1>
+  <p>Web App UI Mockup — All Screens</p>
+</div>
+
+<div class="screens">
+
+  <!-- SCREEN 1: LANDING -->
+  <div class="screen-wrap">
+    <div class="screen-label">01 — Landing</div>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="browser-url">davido.app</div>
+      </div>
+      <div class="browser-content">
+        <div class="landing">
+          <div class="land-logo">DAVIDO</div>
+          <div class="land-tagline">LISTEN INSTEAD OF READ</div>
+          <div class="land-headline">Highlight anything. Hit play. Sounds human.</div>
+          <div class="land-sub">Stop reading walls of text. DAVIDO reads everything aloud in a natural human voice — emails, docs, articles, code, anything.</div>
+          <div class="who-row">
+            <div class="who-tag">Developers</div>
+            <div class="who-tag">ADHD</div>
+            <div class="who-tag">Students</div>
+            <div class="who-tag">Professionals</div>
+          </div>
+          <button class="land-btn">TRY FREE — NO SIGNUP</button>
+          <div class="land-note">10 free reads/day · No credit card · No API key</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: MAIN APP -->
+  <div class="screen-wrap">
+    <div class="screen-label">02 — App</div>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="browser-url">davido.app/read</div>
+      </div>
+      <div class="browser-content">
+        <div class="app-screen">
+          <div class="app-nav">
+            <div class="nav-logo">DAVIDO</div>
+            <div class="nav-right">
+              <div class="nav-reads">7/10 free</div>
+              <div class="nav-tier">FREE</div>
+            </div>
+          </div>
+          <div class="app-body">
+            <div class="ta-wrap">
+              <div class="fake-ta">
+                <span class="typed">The quick brown fox jumps over the </span><span class="highlighted">lazy dog and keeps running</span><span class="typed"> through the field until it disappears into the horizon...</span>
+                <div class="char-count">147 chars</div>
+              </div>
+              <button class="float-read">▶ READ THIS</button>
+            </div>
+
+            <div class="controls">
+              <button class="btn-play">▶ PLAY</button>
+              <button class="btn-pause">⏸ PAUSE</button>
+              <button class="btn-stop">■ STOP</button>
+              <select class="voice-select">
+                <option>Onyx</option>
+              </select>
+            </div>
+
+            <div class="speed-row">
+              <div class="speed-lbl">SPEED</div>
+              <div class="speed-track">
+                <div class="speed-fill"></div>
+                <div class="speed-thumb"></div>
+              </div>
+              <div class="speed-val">1×</div>
+            </div>
+
+            <div class="progress-wrap">
+              <div class="progress-fill"></div>
+            </div>
+
+            <div class="status-line">
+              <div class="status-pulse"></div>
+              Playing — 0:12 / 0:34
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: SIGN UP -->
+  <div class="screen-wrap">
+    <div class="screen-label">03 — Sign Up</div>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="browser-url">davido.app/signup</div>
+      </div>
+      <div class="browser-content">
+        <div class="auth-screen">
+          <div class="auth-logo">DAVIDO</div>
+          <div class="auth-title">CREATE ACCOUNT</div>
+          <div class="auth-sub">Free forever · No credit card needed<br>10 reads per day on the free plan</div>
+
+          <input class="auth-input" type="text" value="your@email.com" readonly>
+          <input class="auth-input focused" type="password" value="••••••••" readonly>
+
+          <button class="auth-btn">CREATE ACCOUNT</button>
+
+          <div class="auth-divider">or choose a plan</div>
+
+          <div class="auth-plans">
+            <div class="plan-card">
+              <div class="plan-name">FREE</div>
+              <div class="plan-price">$0<span>forever</span></div>
+              <div class="plan-feature">10 reads/day<br>3 voices<br>Basic speed</div>
+            </div>
+            <div class="plan-card featured">
+              <div class="plan-name">PRO</div>
+              <div class="plan-price">$8<span>per month</span></div>
+              <div class="plan-feature">Unlimited reads<br>All 6 voices<br>All speeds</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 4: UPGRADE -->
+  <div class="screen-wrap">
+    <div class="screen-label">04 — Upgrade</div>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="browser-url">davido.app/upgrade</div>
+      </div>
+      <div class="browser-content">
+        <div class="upgrade-screen">
+          <div class="upgrade-badge">YOU HIT YOUR FREE LIMIT</div>
+          <div class="upgrade-title">UNLOCK UNLIMITED READS</div>
+
+          <div class="upgrade-price">
+            <div class="up-amount">$8</div>
+            <div class="up-period">PER MONTH · CANCEL ANYTIME</div>
+          </div>
+
+          <div class="upgrade-features">
+            <div class="uf-row">
+              <div class="uf-check">✓</div>
+              <div class="uf-text">Unlimited reads every day</div>
+            </div>
+            <div class="uf-row">
+              <div class="uf-check">✓</div>
+              <div class="uf-text">All 6 natural voices</div>
+            </div>
+            <div class="uf-row">
+              <div class="uf-check">✓</div>
+              <div class="uf-text">Speed control 0.5x to 2x</div>
+            </div>
+            <div class="uf-row">
+              <div class="uf-check">✓</div>
+              <div class="uf-text">Highlight anywhere to read</div>
+            </div>
+            <div class="uf-row">
+              <div class="uf-check">✓</div>
+              <div class="uf-text">No API key ever needed</div>
+            </div>
+          </div>
+
+          <button class="upgrade-btn">UPGRADE TO PRO</button>
+          <div class="upgrade-note">Powered by Stripe · Secure · Cancel anytime<br>No hidden fees ever</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
